@@ -556,11 +556,14 @@ QListView
     border: 1px solid #323232;
     selection-color: #bbbbbb;
     alternate-background-color: #414547; /* Works only if setAlternatingRowColors(true) */
+    show-decoration-selected: 0;
 }
 QListView::item:alternate {
     background-color: #22bb22;
 }
+QTreeView::branch:selected,
 QTreeView::item:selected,
+QListView::branch:selected,
 QListView::item:selected {
     background-color: #4b6eaf;
 }
