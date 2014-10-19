@@ -200,7 +200,6 @@ QPushButton {
     min-width: 5em;
 }
 QPushButton:pressed {
-    background-color: yellow;
     border-style: inset;
 }
 QPushButton:default {
@@ -363,6 +362,8 @@ QTabBar::tab:left:!selected {
  * Table
  *
  * FIXME: Problem with arrows positioning workarounded in bad way
+ * FIXME: Unknown problem Options > FakeVim > User Command Mapping
+ * FIXME: Wrong behaviour property min-height of QHeaderView::section
  */
 
 QTableWidget,
@@ -385,19 +386,14 @@ QHeaderView {
 QHeaderView::section {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:0 #54585b, stop:1 #393c3e);
     color: #bbbbbb;
-    padding-left: 4px;
-    /*border: 0px solid #323232;
-    border-bottom-width: 1px;
-    border-right: 2px solid qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop:0 #2a2c2d, stop:1 #5e6163);*/
+    padding: 1px 2px 1px 4px;
 
     border: 1px solid #323232;
     border-top-width: 0;
     border-left-color: #5e6163;
     border-right-color: #2a2c2d;
 
-    /*border-image: url(data:image/gif;base64,R0lGODlhAwADAKIAAAAAAP///15hYyosLTIyMv///wAAAAAAACH5BAEAAAUALAAAAAADAAMAAAMFSCo1SgkAOw==) 1 round round;*/
-
-    min-height: 15px;
+    /*min-height: 15px;*/
 }
 QHeaderView::section:hover {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:0 #64686b, stop:1 #494c4e);
@@ -547,8 +543,13 @@ QStatusBar QLabel {
 
 
 /*
- * Scroll bar
+ * QAbstractScrollArea modifications
+ *
+ * TODO: ::indicator
+ * TODO: Disable item icon selection mask
+ * FIXME: Transparent selection background on some elements Options > BlackBerry > API Levels and Runtimes
  */
+QTreeWidget,
 QListWidget,
 QTreeView,
 QListView
@@ -561,9 +562,15 @@ QListView
 QListView::item:alternate {
     background-color: #22bb22;
 }
+QListWidgetItem,
+QTreeWidgetItem  {
+    background-color: red;
+    color: yellow;
+    border: 1px solid purple;
+}
 QTreeView::branch:selected,
 QTreeView::item:selected,
-QListView::branch:selected,
+QListWidget::item:selected,
 QListView::item:selected {
     background-color: #4b6eaf;
 }
