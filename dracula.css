@@ -57,7 +57,7 @@ QStackedWidget {
  * Edit first if you want change appearance
  */
 
-QMainWindow, QDialog,
+QMainWindow, QDialog, QFileDialog,
 QMenu, QRadioButton,
 QGroupBox::title, /* Need to set background becase must clear border behind label */
 QMenuBar,
@@ -380,9 +380,6 @@ QTableView QTableCornerButton::section {
     background-color: green; /*FIXME*/
     border: 2px outset blue; /*FIXME*/
 }
-QHeaderView {
-    background-color: #bb2222; /*FIXME*/
-}
 QHeaderView::section {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:0 #54585b, stop:1 #393c3e);
     color: #bbbbbb;
@@ -628,9 +625,3 @@ QToolButton {
     border-radius: 3px;
     opacity: 200;
 }*/
-
-QFileDialog {
-    background-color: green;
-    border: 3px solid green;
-    color: purple;
-}
