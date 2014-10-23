@@ -422,15 +422,11 @@ QMenuBar {
     /*background-color: #3c3f41; /* transparent don't work */
     border-bottom: 2px solid qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:0 #282828, stop:1 #555555);
 }
-/*QMenuBar::item {
-    background-color: transparent;
-    color: #bbbbbb;
-}*/
-/*QMenuBar::item:selected {
-    background-color: #4b6eaf;
-}*/
 QMenuBar::item:pressed {
     background-color: #4b6eaf;
+}
+QMenuBar::item:selected:!pressed {
+    background-color: #585b5d;
 }
 QMenu {
     border: 1px solid #2d2d2d;
@@ -488,10 +484,16 @@ QScrollBar::handle:vertical {
     min-height: 20px;
     min-width: 8px;
 }
+QScrollBar::handle:vertical:hover {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop:0 #666666, stop:1 #5b5b5b);
+}
 QScrollBar::handle:horizontal {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:0 #5c5c5c, stop:1 #515151);
     min-height: 8px;
     min-width: 20px;
+}
+QScrollBar::handle:horizontal:hover {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:0 #666666, stop:1 #5b5b5b);
 }
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical,
 QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
