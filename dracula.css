@@ -77,6 +77,8 @@ QCheckBox, QGroupBox {
 
 /*
  * GroupBox and CheckBox
+ *
+ * TODO: ::indicator:indeterminate icons
  */
 
 QGroupBox {
@@ -159,6 +161,8 @@ QLineEdit, QAbstractSpinBox, QComboBox, QPushButton {
 
 /*
  * Any SpinBox (e.g. DoubleSpinbox)
+ *
+ * TODO: Icons not fit into the overall style
  */
 QAbstractSpinBox::up-button {
     image: url(:/qmldesigner/images/spinup.png);
@@ -212,7 +216,7 @@ QPushButton:disabled {
 }
 
 /*
- *
+ * ComboBox
  */
 QComboBox {
     border-radius: 2px;
@@ -417,7 +421,11 @@ QHeaderView::up-arrow {
     width: 7px;
 }
 
-
+/*
+ * Menu and MenuBar
+ *
+ * TODO: Customize toggleable items
+ */
 QMenuBar {
     /*background-color: #3c3f41; /* transparent don't work */
     border-bottom: 2px solid qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:0 #282828, stop:1 #555555);
