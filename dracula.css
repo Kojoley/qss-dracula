@@ -7,57 +7,13 @@
  * Drop background color of most widgets
  */
 
-QWidget, QFrame, QStackedWidget,
+QWidget, QStackedWidget,
 QScrollArea, QAbstractScrollArea {
     background-color: transparent;
 }
 
-/* v WORKAROUND v */
-
-/*
- * Because any CSS style drops every property of object
- * Switching into Editor resets font and color of edit and extra edit areas
- * So set you own peferred colors and font
- * Related to:
- * 1) https://bugreports.qt-project.org/browse/QTCREATORBUG-12078
- * 2) https://codereview.qt-project.org/#/c/74538/
- */
-
-/*
- * Code edition area
- */
-
-/* Background of code editor */
-QPlainTextEdit {
-    background-color: #2b2b2b;
-    selection-background-color: #214283;
-    color: #bbbbbb;
-    selection-color: #bbbbbb; /* No better workaround for this */
-    font: 10pt "Courier";
-    border-left: 1px dotted #555555;
-}
-/*QPlainTextEdit > QObject {
-    background-color: red;
-    border-left: 1px solid purple;
-    color: red;
-}*/
-/* TextEditExtraArea */
-QPlainTextEdit > /*QObject >*/ QWidget[width="63"] {
-    background-color: #313335;
-    color: red; /*#888888; /* Line number color*/
-}
-QStackedWidget {
-    /*border-left: 1px solid #27292a;*/
-}
-
-/* ^ WORKAROUND ^ */
-
-/*
- * This is default values
- * Edit first if you want change appearance
- */
-
-QMainWindow, QDialog, QFileDialog,
+QApplication,
+QMainWindow, QFrame, QDockWidget, QDialog, QFileDialog, QMessageBox,
 QMenu, QRadioButton,
 QGroupBox::title, /* Need to set background becase must clear border behind label */
 QMenuBar,
@@ -67,6 +23,11 @@ QTextEdit, QTextBrowser {
     background-color: #3c3f41; /*#004100;*/
     color: #bbbbbb;
 }
+
+/*
+ * This is default values
+ * Edit first if you want change appearance
+ */
 
 QLabel, QTabBar::tab, QMenuBar::item,
 QCheckBox, QGroupBox {
@@ -196,23 +157,30 @@ QAbstractSpinBox::down-button:pressed {
  * TODO: Customize :pressed
  * FIXME: Outline is positioned around content, but should around padding
  */
+
 QPushButton {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #515658, stop: 1.0 #44494b);
     border: 1px solid #5f6161;
     border-radius: 2px;
-    padding: 2px 5px 3px 6px;
-    min-width: 5em;
+    min-height: 1.33em;
+    min-width: 5.25em;
 }
 QPushButton:pressed {
     border-style: inset;
 }
 QPushButton:default {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #344a64, stop: 1.0 #263549);
-    font-weight: bold;
 }
 QPushButton:disabled {
     background-color: transparent;
     color: #999999;
+}
+QPushButton:open {
+    background-color: #4b6eaf;
+}
+QPushButton::menu-indicator  {
+    subcontrol-origin: content;
+    subcontrol-position: bottom right;
 }
 
 /*
@@ -617,10 +585,6 @@ QSizeGrip {
     height: 16px;
 }
 
-QToolButton {
-    color: white;
-}
-
 /*QToolTip {
     border: 2px solid darkkhaki;
     padding: 5px;
@@ -636,3 +600,28 @@ QToolButton {
     border-radius: 3px;
     opacity: 200;
 }*/
+
+/* vvvvvvvvvvvvvvvvvvvvvvvvvv WORKAROUND vvvvvvvvvvvvvvvvvvvvvvvvvv */
+/* Related to:
+ *   1) https://bugreports.qt-project.org/browse/QTCREATORBUG-12078
+ *   2) https://codereview.qt-project.org/#/c/74538/
+ * Because of bugs in QtGui, apllying stylesheet to QPlainTextEdit causes it
+ * to lose font settings and palette on setParent event. So switching between
+ * modes (Editor and Debug) or split Editor resets font and color of edit
+ * and extra edit areas
+ * To workaround this problems set you own peferred colors and font below
+ */
+QPlainTextEdit {
+    background-color: #2b2b2b;
+    selection-background-color: #214283;
+    color: #bbbbbb;
+    selection-color: #bbbbbb; /* No better workaround for this */
+    font: 10pt "Courier Inconsolata";
+}
+/*TextEditor--Internal--TextEditExtraArea*/
+TextEditor--BaseTextEditorWidget > QWidget {
+    background-color: #313335;
+    selection-background-color: #4b6eaf;
+    color: #bbbbbb; /* Sadly this has no effect */
+}
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^ WORKAROUND ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
