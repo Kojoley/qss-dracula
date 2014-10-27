@@ -616,7 +616,7 @@ QPlainTextEdit {
     selection-background-color: #214283;
     color: #bbbbbb;
     selection-color: #bbbbbb; /* No better workaround for this */
-    font: 10pt "Courier Inconsolata";
+    font: 10pt Courier, Inconsolata, Monospace;
 }
 /*TextEditor--Internal--TextEditExtraArea*/
 TextEditor--BaseTextEditorWidget > QWidget {
