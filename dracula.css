@@ -14,9 +14,9 @@ QScrollArea, QAbstractScrollArea {
 
 QApplication,
 QMainWindow, QFrame, QDockWidget, QDialog, QFileDialog, QMessageBox,
-QMenu, QRadioButton,
+QRadioButton,
 QGroupBox::title, /* Need to set background becase must clear border behind label */
-QMenuBar,
+QMenuBar, QMenu, QMenu::item,
 QComboBox QAbstractItemView,
 QTreeView, QListWidget, QListView, QTableWidget, QTableView,
 QTextEdit, QTextBrowser {
@@ -335,7 +335,7 @@ QTabBar::tab:left:!selected {
  *
  * FIXME: Problem with arrows positioning workarounded in bad way
  * FIXME: Unknown problem Options > FakeVim > User Command Mapping
- * FIXME: Wrong behaviour property min-height of QHeaderView::section
+ * QT-BUG: Wrong behaviour property min-height of QHeaderView::section
  */
 
 QTableWidget,
@@ -622,6 +622,6 @@ QPlainTextEdit {
 TextEditor--BaseTextEditorWidget > QWidget {
     background-color: #313335;
     selection-background-color: #4b6eaf;
-    color: #bbbbbb; /* Sadly this has no effect */
+    color: #bbbbbb; /* QT-BUG: Sadly this has no effect */
 }
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^ WORKAROUND ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
