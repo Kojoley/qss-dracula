@@ -585,21 +585,18 @@ QSizeGrip {
     height: 16px;
 }
 
-/*QToolTip {
-    border: 2px solid darkkhaki;
-    padding: 5px;
-    border-radius: 3px;
-    opacity: 200;
-    overflow:hidden;
+/*
+ * ToolTip
+ */
 
-    /*color: #bbbbbb;
-    background: purple; /*#5c5c42;*/
-    /*border: 3px solid red; /*#9a9a66;*/
-    /*margin: 1px;
-    padding: 0 3px;
+QToolTip, QTipLabel {
+    border: 1px solid #9a9a66;
     border-radius: 3px;
-    opacity: 200;
-}*/
+    background: #5c5c42;
+    color: #bbbbbb;
+    margin: 0;
+    padding: 0;
+}
 
 /* vvvvvvvvvvvvvvvvvvvvvvvvvv WORKAROUND vvvvvvvvvvvvvvvvvvvvvvvvvv */
 /* Related to:
