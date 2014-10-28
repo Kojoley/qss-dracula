@@ -152,29 +152,35 @@ QAbstractSpinBox::down-button:pressed {
 
 
 /*
- * PushButton
+ * PushButton and Utils::QtColorButton
  *
  * TODO: Customize :pressed
  * FIXME: Outline is positioned around content, but should around padding
  */
 
 QPushButton {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #515658, stop: 1.0 #44494b);
-    border: 1px solid #5f6161;
-    border-radius: 2px;
     min-height: 1.33em;
     min-width: 5.25em;
 }
+Utils--QtColorButton,
+QPushButton {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #515658, stop: 1.0 #44494b);
+    border: 1px solid #5f6161;
+    border-radius: 2px;
+}
+Utils--QtColorButton:pressed,
 QPushButton:pressed {
     border-style: inset;
 }
 QPushButton:default {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #344a64, stop: 1.0 #263549);
 }
+Utils--QtColorButton:disabled,
 QPushButton:disabled {
     background-color: transparent;
     color: #999999;
 }
+Utils--QtColorButton:open,
 QPushButton:open {
     background-color: #4b6eaf;
 }
