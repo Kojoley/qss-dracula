@@ -604,6 +604,21 @@ QToolTip, QTipLabel {
     padding: 0;
 }
 
+/*
+ * Wizard dialog
+ *
+ * TODO: Buttons bar background
+ */
+
+QWizard > QWidget {
+    background-color: #3c3f41;
+}
+
+/* QT-BUG: Because QFrame { border-color: #323232; } has no effect */
+Core--Internal--NewDialog > QFrame#frame {
+    border: 1px solid #323232;
+}
+
 /* vvvvvvvvvvvvvvvvvvvvvvvvvv WORKAROUND vvvvvvvvvvvvvvvvvvvvvvvvvv */
 /* Related to:
  *   1) https://bugreports.qt-project.org/browse/QTCREATORBUG-12078
