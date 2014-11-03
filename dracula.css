@@ -161,6 +161,7 @@ QAbstractSpinBox::down-button:pressed {
 QPushButton {
     min-height: 1.33em;
     min-width: 5.25em;
+    outline: 0;
 }
 Utils--QtColorButton,
 QPushButton {
@@ -524,24 +525,31 @@ QStatusBar QLabel {
 
 
 /*
- * QAbstractScrollArea modifications
+ * QAbstractItemView modifications
  *
  * TODO: ::indicator
  * TODO: Disable item icon selection mask
  * FIXME: Transparent selection background on some elements Options > BlackBerry > API Levels and Runtimes
+ * QT-BUG: Strange behaviour of selection-* properties (always :!focus)
  */
-QTreeWidget,
-QListWidget,
-QTreeView,
-QListView
-{
+QAbstractItemView {
     border: 1px solid #323232;
     selection-color: #bbbbbb;
     selection-background-color: #4b6eaf;
     alternate-background-color: #414547; /* Works only if setAlternatingRowColors(true) */
-    show-decoration-selected: 0;
+    show-decoration-selected: 1;
+    outline: 0;
 }
-QListView::item:alternate {
+/*
+QAbstractItemView:!focus {
+    selection-background-color: #0d293e;
+}
+QTreeView::branch,
+QAbstractItemView::item {
+    border-width: 0;
+}
+*/
+QAbstractItemView::item:alternate {
     background-color: #22bb22;
 }
 QListWidgetItem,
@@ -550,12 +558,27 @@ QTreeWidgetItem  {
     color: yellow;
     border: 1px solid purple;
 }
-QTreeView::branch:selected,
-QTreeView::item:selected,
-QListWidget::item:selected,
-QListView::item:selected {
+QAbstractItemView::text {
+    color: #bbbbbb;
+}
+QTreeView::branch:hover,
+QAbstractItemView::item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+QTreeView::branch:selected:active,
+QAbstractItemView::item:selected {
     background-color: #4b6eaf;
 }
+/* No way due to another bug :(
+QTreeView::branch:selected:active,
+QAbstractItemView::item:selected:active {
+    background-color: #4b6eaf;
+}
+QTreeView::branch:selected:!active,
+QAbstractItemView::item:selected:!active {
+    background-color: #0d293e;
+}
+*/
 QTreeView::branch:has-siblings:adjoins-item,
 QTreeView::branch:has-siblings:!adjoins-item,
 QTreeView::branch:!has-children:!has-siblings:adjoins-item {
@@ -583,6 +606,8 @@ QToolBar {
 
 /*
  * Resizing widget (bottom right in Qt Creator, inside status bar)
+ *
+ * QT-BUG: image property is ignored since Qt between QtCreator 3.2.1 and 3.2.0
  */
 
 QSizeGrip {
