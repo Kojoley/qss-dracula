@@ -606,8 +606,6 @@ QToolBar {
 
 /*
  * Resizing widget (bottom right in Qt Creator, inside status bar)
- *
- * QT-BUG: image property is ignored since Qt between QtCreator 3.2.1 and 3.2.0
  */
 
 QSizeGrip {
