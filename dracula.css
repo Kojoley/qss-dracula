@@ -662,7 +662,7 @@ QPlainTextEdit {
     font: 10pt Courier, Inconsolata, Monospace;
 }
 /*TextEditor--Internal--TextEditExtraArea*/
-TextEditor--BaseTextEditorWidget > QWidget {
+TextEditor--TextEditorWidget > QWidget {
     background-color: #313335;
     selection-background-color: #4b6eaf;
     color: #bbbbbb; /* QT-BUG: Sadly this has no effect */
