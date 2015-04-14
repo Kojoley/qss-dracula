@@ -549,7 +549,7 @@ QAbstractItemView::item {
 }
 */
 QAbstractItemView::item:alternate {
-    background-color: #22bb22;
+    background-color: #414547;
 }
 QListWidgetItem,
 QTreeWidgetItem  {
